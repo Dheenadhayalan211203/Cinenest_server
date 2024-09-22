@@ -8,7 +8,7 @@ app.use(express.json());
 
  
 
-const mongouri=MONGOURI;
+const mongouri=process.env.MONGOURI;
 
 async function DbConnect() {
   try {
