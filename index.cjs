@@ -20,7 +20,7 @@ async function DbConnect() {
   try {
     await mongoose
       .connect(
-        MONGOURI,
+        mongouri,
         {
           useNewUrlParser: true,
           useUnifiedTopology: true,
