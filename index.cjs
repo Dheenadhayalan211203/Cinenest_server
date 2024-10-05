@@ -35,17 +35,16 @@ const userSchema = new mongoose.Schema({
 });
 
 const eventSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  description: { type: String  },
+  name: { type: String, required: true },
   category: { type: String, required: true },
   location: { type: String, required: true },
   date: { type: Date, required: true },
-  time: { type: String  },
   price: { type: Number, required: true },
   availableSeats: { type: Number, required: true },
-  image: { type: String },  // Store image as binary data
+  image: { type: String },  // Store image as base64 string
   createdAt: { type: Date, default: Date.now },
 });
+
 
 const Users = mongoose.model("users", userSchema);
 const Event = mongoose.model("events", eventSchema);
