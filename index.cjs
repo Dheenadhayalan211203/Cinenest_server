@@ -12,6 +12,13 @@ app.use(cors());
 app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 
+// Middleware for setting security headers
+app.use((req, res, next) => {
+  res.set('Cache-Control', 'no-store'); // Prevent caching
+  res.set('X-Content-Type-Options', 'nosniff'); // Prevent MIME-sniffing
+  next();
+});
+
 // Database connection
 async function DbConnect() {
   try {
@@ -44,7 +51,6 @@ const eventSchema = new mongoose.Schema({
   image: { type: String },  // Store image as base64 string
   createdAt: { type: Date, default: Date.now },
 });
-
 
 const Users = mongoose.model("users", userSchema);
 const Event = mongoose.model("events", eventSchema);
