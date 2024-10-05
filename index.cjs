@@ -35,12 +35,12 @@ const userSchema = new mongoose.Schema({
 });
 
 const eventSchema = new mongoose.Schema({
-  name: { type: String, required: true },
+  title: { type: String, required: true },
   category: { type: String, required: true },
   location: { type: String, required: true },
   date: { type: Date, required: true },
   price: { type: Number, required: true },
-  availableSeats: { type: Number, required: true },
+  availableseats: { type: Number, required: true },
   image: { type: String },  // Store image as base64 string
   createdAt: { type: Date, default: Date.now },
 });
