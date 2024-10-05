@@ -74,7 +74,7 @@ app.post('/login', async (req, res) => {
 app.post('/add-event', async (req, res) => {
   try {
     const { title, description, category, location, date, time, price, availableSeats, image } = req.body;
-    const event = new Event({ title, description, category, location, date, time, price, availableSeats, image });
+    const event = new Event({ title, description, category, location, date, time, price, availableseats, image });
     const savedEvent = await event.save();
     res.status(201).json({ status: "Event added", eventId: savedEvent._id });
   } catch (err) {
